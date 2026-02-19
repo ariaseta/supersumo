@@ -95,6 +95,7 @@ Configure Supabase
 ```
 
 Then open `.env` and add your Supabase credentials:
+
 - `VITE_SUPABASE_URL`: Your Supabase project URL from https://app.supabase.com
 - `VITE_SUPABASE_ANON_KEY`: Your Supabase anon key from Project Settings → API
 

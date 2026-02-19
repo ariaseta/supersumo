@@ -340,7 +340,7 @@ bun preview
 3. **Add UI Components (if needed):**
    ```bash
    # Use Shadcn CLI - DO NOT manually edit ui components
-   npx shadcn@latest add button
+   bunx shadcn@latest add button
    ```
 
 4. **Implement State Management:**
