@@ -122,7 +122,9 @@ export function DomainDetails() {
 
   useEffect(() => {
     const now = Date.now()
-    const value = Math.ceil((new Date(domain.expires).getTime() - now) / 86400000)
+    const value = Math.ceil(
+      (new Date(domain.expires).getTime() - now) / 86400000
+    )
     if (value !== daysToExpiry) {
       const id = setTimeout(() => setDaysToExpiry(value), 0)
       return () => clearTimeout(id)
