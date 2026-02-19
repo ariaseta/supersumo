@@ -4,7 +4,7 @@
 
 **SuperUMO** is a modern PaaS (Platform as a Service) Admin Dashboard built with React 19, TypeScript, and Vite. This application provides a comprehensive management interface for cloud services including VPS, Containers, Databases, Domains, and more.
 
-- **Repository**: https://github.com/ariaseta/superumo
+- **Repository**: https://github.com/ariaseta/supersumo
 - **Type**: Single Page Application (SPA) - Admin Dashboard
 - **License**: MIT
 - **Node.js**: 20.x
