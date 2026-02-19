@@ -57,6 +57,7 @@ export function DomainList({ data }: DataTableProps) {
     columnFilters: [{ columnId: 'status', searchKey: 'status', type: 'array' }],
   })
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
     data,
     columns,

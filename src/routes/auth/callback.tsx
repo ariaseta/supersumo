@@ -7,6 +7,7 @@ export const Route = createFileRoute('/auth/callback')({
   component: AuthCallback,
 })
 
+// eslint-disable-next-line react-refresh/only-export-components
 function AuthCallback() {
   const navigate = useNavigate()
 

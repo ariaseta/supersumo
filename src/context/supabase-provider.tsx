@@ -99,6 +99,7 @@ export function SupabaseProvider({ children }: { children: ReactNode }) {
   return <Context.Provider value={value}>{children}</Context.Provider>
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useSupabase() {
   const context = useContext(Context)
 

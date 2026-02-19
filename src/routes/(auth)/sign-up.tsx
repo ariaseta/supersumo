@@ -21,6 +21,7 @@ export const Route = createFileRoute('/(auth)/sign-up')({
 
 const OTP_COOLDOWN_SECONDS = 60
 
+// eslint-disable-next-line react-refresh/only-export-components
 function SignUp() {
   const navigate = useNavigate()
   const [isLoading, setIsLoading] = useState(false)
