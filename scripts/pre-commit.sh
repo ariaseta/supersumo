@@ -19,14 +19,14 @@ else
 fi
 echo ""
 
-# 2. Format
+# 2. Check Formatting (before fixing)
 echo "🎨 Checking code formatting..."
-bun format
+bun format:check
 if [ $? -eq 0 ]; then
-  echo "✅ Prettier formatting passed"
+  echo "✅ Prettier check passed"
 else
-  echo "❌ Prettier formatting failed"
-  exit 1
+  echo "⚠️  Formatting issues detected, auto-fixing..."
+  bun format
 fi
 echo ""
 

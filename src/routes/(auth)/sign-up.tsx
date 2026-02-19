@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
-import { Loader2, Mail, Key, User, Building2 } from 'lucide-react'
 import { Turnstile } from '@marsidev/react-turnstile'
+import { Loader2, Mail, Key, User, Building2 } from 'lucide-react'
 import { toast } from 'sonner'
 import { supabase } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
@@ -254,7 +254,7 @@ function SignUp() {
               <div className='grid gap-2'>
                 <Label htmlFor='otp'>Verification Code</Label>
                 <div className='relative'>
-                  <Key className='absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
+                  <Key className='absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
                   <Input
                     id='otp'
                     type='text'
@@ -302,9 +302,7 @@ function SignUp() {
               </div>
 
               <Button type='submit' disabled={isLoading} className='w-full'>
-                {isLoading && (
-                  <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                )}
+                {isLoading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
                 Create Account
               </Button>
             </form>
@@ -366,7 +364,7 @@ function SignUp() {
               <div className='grid gap-2'>
                 <Label htmlFor='firstName'>First Name</Label>
                 <div className='relative'>
-                  <User className='absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
+                  <User className='absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
                   <Input
                     id='firstName'
                     type='text'
@@ -382,7 +380,7 @@ function SignUp() {
               <div className='grid gap-2'>
                 <Label htmlFor='lastName'>Last Name</Label>
                 <div className='relative'>
-                  <User className='absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
+                  <User className='absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
                   <Input
                     id='lastName'
                     type='text'
@@ -400,7 +398,7 @@ function SignUp() {
             <div className='grid gap-2'>
               <Label htmlFor='companyName'>Company Name</Label>
               <div className='relative'>
-                <Building2 className='absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
+                <Building2 className='absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
                 <Input
                   id='companyName'
                   type='text'
@@ -417,7 +415,7 @@ function SignUp() {
             <div className='grid gap-2'>
               <Label htmlFor='email'>Email address</Label>
               <div className='relative'>
-                <Mail className='absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
+                <Mail className='absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
                 <Input
                   id='email'
                   type='email'

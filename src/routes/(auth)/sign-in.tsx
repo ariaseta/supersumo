@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
-import { Loader2, Mail, Key } from 'lucide-react'
 import { Turnstile } from '@marsidev/react-turnstile'
+import { Loader2, Mail, Key } from 'lucide-react'
 import { toast } from 'sonner'
 import { supabase } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
@@ -254,7 +254,7 @@ function SignIn() {
               <div className='grid gap-2'>
                 <Label htmlFor='otp'>Verification Code</Label>
                 <div className='relative'>
-                  <Key className='absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
+                  <Key className='absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
                   <Input
                     id='otp'
                     type='text'
@@ -299,9 +299,7 @@ function SignIn() {
               </div>
 
               <Button type='submit' disabled={isLoading} className='w-full'>
-                {isLoading && (
-                  <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                )}
+                {isLoading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
                 Verify Code
               </Button>
             </form>
@@ -316,9 +314,7 @@ function SignIn() {
       <Card className='w-full max-w-md'>
         <CardHeader className='space-y-1 text-center'>
           <CardTitle className='text-2xl font-bold'>Welcome back</CardTitle>
-          <CardDescription>
-            Sign in to your account to continue
-          </CardDescription>
+          <CardDescription>Sign in to your account to continue</CardDescription>
         </CardHeader>
         <CardContent className='grid gap-6'>
           <Button
@@ -360,7 +356,7 @@ function SignIn() {
             <div className='grid gap-2'>
               <Label htmlFor='email'>Email address</Label>
               <div className='relative'>
-                <Mail className='absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
+                <Mail className='absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-muted-foreground' />
                 <Input
                   id='email'
                   type='email'
