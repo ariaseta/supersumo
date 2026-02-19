@@ -324,29 +324,31 @@ function SignUp() {
           </CardDescription>
         </CardHeader>
         <CardContent className='grid gap-4'>
-          <Button
-            variant='outline'
-            onClick={() => handleOAuthSignUp('google')}
-            disabled={isLoading}
-            type='button'
-            className='w-full'
-          >
-            <GoogleIcon />
-            Sign up with Google
-          </Button>
-
-          {ENABLE_GITHUB && (
+          <div className='grid gap-2 pt-2'>
             <Button
               variant='outline'
-              onClick={() => handleOAuthSignUp('github')}
+              onClick={() => handleOAuthSignUp('google')}
               disabled={isLoading}
               type='button'
               className='w-full'
             >
-              <GitHubIcon />
-              Sign up with GitHub
+              <GoogleIcon />
+              Sign up with Google
             </Button>
-          )}
+
+            {ENABLE_GITHUB && (
+              <Button
+                variant='outline'
+                onClick={() => handleOAuthSignUp('github')}
+                disabled={isLoading}
+                type='button'
+                className='w-full'
+              >
+                <GitHubIcon />
+                Sign up with GitHub
+              </Button>
+            )}
+          </div>
 
           <div className='relative'>
             <div className='absolute inset-0 flex items-center'>

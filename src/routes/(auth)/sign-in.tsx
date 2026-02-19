@@ -317,29 +317,31 @@ function SignIn() {
           <CardDescription>Sign in to your account to continue</CardDescription>
         </CardHeader>
         <CardContent className='grid gap-6'>
-          <Button
-            variant='outline'
-            onClick={() => handleOAuthSignIn('google')}
-            disabled={isLoading}
-            type='button'
-            className='w-full'
-          >
-            <GoogleIcon />
-            Sign in with Google
-          </Button>
-
-          {ENABLE_GITHUB && (
+          <div className='grid gap-2 pt-2'>
             <Button
               variant='outline'
-              onClick={() => handleOAuthSignIn('github')}
+              onClick={() => handleOAuthSignIn('google')}
               disabled={isLoading}
               type='button'
               className='w-full'
             >
-              <GitHubIcon />
-              Sign in with GitHub
+              <GoogleIcon />
+              Sign in with Google
             </Button>
-          )}
+
+            {ENABLE_GITHUB && (
+              <Button
+                variant='outline'
+                onClick={() => handleOAuthSignIn('github')}
+                disabled={isLoading}
+                type='button'
+                className='w-full'
+              >
+                <GitHubIcon />
+                Sign in with GitHub
+              </Button>
+            )}
+          </div>
 
           <div className='relative'>
             <div className='absolute inset-0 flex items-center'>
