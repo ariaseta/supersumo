@@ -22,7 +22,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Switch } from '@/components/ui/switch'
 import { DataTableColumnHeader } from '@/components/data-table'
-import { VPS } from '../data/schema'
+import { type VPS } from '../data/schema'
 
 export const vpsColumns: ColumnDef<VPS>[] = [
   {
@@ -63,21 +63,25 @@ export const vpsColumns: ColumnDef<VPS>[] = [
       tdClassName: 'ps-4',
     },
     cell: ({ row }) => {
-      const name = row.getValue('name') as string
-      const navigate = useNavigate()
-      return (
-        <button
-          onClick={() =>
-            navigate({
-              to: '/vps/$vpsId',
-              params: { vpsId: row.original.id },
-            })
-          }
-          className='truncate text-left font-medium hover:underline'
-        >
-          {name}
-        </button>
-      )
+      const NameCell = () => {
+        const name = row.getValue('name') as string
+        const navigate = useNavigate()
+        return (
+          <button
+            onClick={() =>
+              navigate({
+                to: '/vps/$vpsId',
+                params: { vpsId: row.original.id },
+              })
+            }
+            className='truncate text-left font-medium hover:underline'
+          >
+            {name}
+          </button>
+        )
+      }
+
+      return <NameCell />
     },
   },
   {
@@ -165,48 +169,52 @@ export const vpsColumns: ColumnDef<VPS>[] = [
     id: 'actions',
     enableSorting: false,
     cell: ({ row }) => {
-      const vps = row.original
-      const navigate = useNavigate()
+      const ActionsCell = () => {
+        const vps = row.original
+        const navigate = useNavigate()
 
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant='ghost' className='h-8 w-8 p-0'>
-              <span className='sr-only'>Open menu</span>
-              <MoreHorizontal className='h-4 w-4' />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align='end'>
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() =>
-                navigate({ to: '/vps/$vpsId', params: { vpsId: vps.id } })
-              }
-            >
-              <Terminal className='mr-2 h-4 w-4' /> Console
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <RefreshCw className='mr-2 h-4 w-4' /> Reboot
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              {vps.status === 'running' ? (
-                <>
-                  <Square className='mr-2 h-4 w-4' /> Power Off
-                </>
-              ) : (
-                <>
-                  <Play className='mr-2 h-4 w-4' /> Power On
-                </>
-              )}
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className='text-red-600'>
-              <Trash2 className='mr-2 h-4 w-4' /> Destroy
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      )
+        return (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant='ghost' className='h-8 w-8 p-0'>
+                <span className='sr-only'>Open menu</span>
+                <MoreHorizontal className='h-4 w-4' />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align='end'>
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuItem
+                onClick={() =>
+                  navigate({ to: '/vps/$vpsId', params: { vpsId: vps.id } })
+                }
+              >
+                <Terminal className='mr-2 h-4 w-4' /> Console
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <RefreshCw className='mr-2 h-4 w-4' /> Reboot
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                {vps.status === 'running' ? (
+                  <>
+                    <Square className='mr-2 h-4 w-4' /> Power Off
+                  </>
+                ) : (
+                  <>
+                    <Play className='mr-2 h-4 w-4' /> Power On
+                  </>
+                )}
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem className='text-red-600'>
+                <Trash2 className='mr-2 h-4 w-4' /> Destroy
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        )
+      }
+
+      return <ActionsCell />
     },
   },
 ]

@@ -24,7 +24,7 @@ import {
 } from '@/components/ui/table'
 import { DataTablePagination, DataTableToolbar } from '@/components/data-table'
 import { statuses, regions } from '../data/data'
-import { Database } from '../data/schema'
+import { type Database } from '../data/schema'
 import { DataTableBulkActions } from './data-table-bulk-actions'
 import { databaseColumns as columns } from './database-columns'
 

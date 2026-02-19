@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Switch } from '@/components/ui/switch'
 import { DataTableColumnHeader } from '@/components/data-table'
-import { Container } from '../data/schema'
+import { type Container } from '../data/schema'
 
 export const containersColumns: ColumnDef<Container>[] = [
   {
@@ -43,20 +43,24 @@ export const containersColumns: ColumnDef<Container>[] = [
       tdClassName: 'ps-4',
     },
     cell: ({ row }) => {
-      const navigate = useNavigate()
-      return (
-        <button
-          onClick={() =>
-            navigate({
-              to: '/containers/$containerId',
-              params: { containerId: row.original.id },
-            })
-          }
-          className='truncate text-left font-medium hover:underline'
-        >
-          {row.getValue('name')}
-        </button>
-      )
+      const NameCell = () => {
+        const navigate = useNavigate()
+        return (
+          <button
+            onClick={() =>
+              navigate({
+                to: '/containers/$containerId',
+                params: { containerId: row.original.id },
+              })
+            }
+            className='truncate text-left font-medium hover:underline'
+          >
+            {row.getValue('name')}
+          </button>
+        )
+      }
+
+      return <NameCell />
     },
   },
   {
@@ -157,21 +161,25 @@ export const containersColumns: ColumnDef<Container>[] = [
     id: 'actions',
     enableSorting: false,
     cell: ({ row }) => {
-      const navigate = useNavigate()
-      return (
-        <Button
-          variant='secondary'
-          size='sm'
-          onClick={() =>
-            navigate({
-              to: '/containers/$containerId',
-              params: { containerId: row.original.id },
-            })
-          }
-        >
-          Manage
-        </Button>
-      )
+      const ActionsCell = () => {
+        const navigate = useNavigate()
+        return (
+          <Button
+            variant='secondary'
+            size='sm'
+            onClick={() =>
+              navigate({
+                to: '/containers/$containerId',
+                params: { containerId: row.original.id },
+              })
+            }
+          >
+            Manage
+          </Button>
+        )
+      }
+
+      return <ActionsCell />
     },
   },
 ]

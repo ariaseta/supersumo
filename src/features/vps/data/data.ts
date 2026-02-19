@@ -1,4 +1,4 @@
-import { VPS } from './schema'
+import { type VPS } from './schema'
 
 export const vpsInstances: VPS[] = [
   {

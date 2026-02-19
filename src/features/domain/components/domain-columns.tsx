@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Switch } from '@/components/ui/switch'
 import { DataTableColumnHeader } from '@/components/data-table'
-import { Domain } from '../data/schema'
+import { type Domain } from '../data/schema'
 
 export const domainColumns: ColumnDef<Domain>[] = [
   {
@@ -47,21 +47,25 @@ export const domainColumns: ColumnDef<Domain>[] = [
       tdClassName: 'ps-4',
     },
     cell: ({ row }) => {
-      const navigate = useNavigate()
-      const domain = row.getValue('domain') as string
-      return (
-        <button
-          onClick={() =>
-            navigate({
-              to: '/domain/$domainId',
-              params: { domainId: row.original.id },
-            })
-          }
-          className='truncate text-left font-medium hover:underline'
-        >
-          {domain}
-        </button>
-      )
+      const NameCell = () => {
+        const navigate = useNavigate()
+        const domain = row.getValue('domain') as string
+        return (
+          <button
+            onClick={() =>
+              navigate({
+                to: '/domain/$domainId',
+                params: { domainId: row.original.id },
+              })
+            }
+            className='truncate text-left font-medium hover:underline'
+          >
+            {domain}
+          </button>
+        )
+      }
+
+      return <NameCell />
     },
   },
   {
@@ -129,21 +133,25 @@ export const domainColumns: ColumnDef<Domain>[] = [
     id: 'actions',
     enableSorting: false,
     cell: ({ row }) => {
-      const navigate = useNavigate()
-      return (
-        <Button
-          variant='secondary'
-          size='sm'
-          onClick={() =>
-            navigate({
-              to: '/domain/$domainId',
-              params: { domainId: row.original.id },
-            })
-          }
-        >
-          Manage
-        </Button>
-      )
+      const ActionsCell = () => {
+        const navigate = useNavigate()
+        return (
+          <Button
+            variant='secondary'
+            size='sm'
+            onClick={() =>
+              navigate({
+                to: '/domain/$domainId',
+                params: { domainId: row.original.id },
+              })
+            }
+          >
+            Manage
+          </Button>
+        )
+      }
+
+      return <ActionsCell />
     },
   },
 ]

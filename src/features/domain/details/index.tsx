@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from '@tanstack/react-router'
 import {
   ChevronLeft,
@@ -118,9 +118,17 @@ export function DomainDetails() {
     },
   }
 
-  const daysToExpiry = Math.ceil(
-    (new Date(domain.expires).getTime() - Date.now()) / 86400000
-  )
+  const [daysToExpiry, setDaysToExpiry] = useState<number>(0)
+
+  useEffect(() => {
+    const now = Date.now()
+    const value = Math.ceil((new Date(domain.expires).getTime() - now) / 86400000)
+    if (value !== daysToExpiry) {
+      const id = setTimeout(() => setDaysToExpiry(value), 0)
+      return () => clearTimeout(id)
+    }
+    return undefined
+  }, [domain.expires, daysToExpiry])
 
   const handleCopy = (text: string, key: string) => {
     void navigator.clipboard.writeText(text)

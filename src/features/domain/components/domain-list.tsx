@@ -24,7 +24,7 @@ import {
 } from '@/components/ui/table'
 import { DataTablePagination, DataTableToolbar } from '@/components/data-table'
 import { statuses } from '../data/data'
-import { Domain } from '../data/schema'
+import { type Domain } from '../data/schema'
 import { DataTableBulkActions } from './data-table-bulk-actions'
 import { domainColumns as columns } from './domain-columns'
 

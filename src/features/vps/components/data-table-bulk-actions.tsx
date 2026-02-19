@@ -1,4 +1,4 @@
-import { Table } from '@tanstack/react-table'
+import { type Table } from '@tanstack/react-table'
 import { Trash2, Play, Square } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { VPS } from '../data/schema'
+import { type VPS } from '../data/schema'
 
 interface DataTableBulkActionsProps {
   table: Table<VPS>

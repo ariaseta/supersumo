@@ -1,4 +1,4 @@
-import { Container } from './schema'
+import { type Container } from './schema'
 
 export const containers: Container[] = [
   {

@@ -1,4 +1,4 @@
-import { Domain } from './schema'
+import { type Domain } from './schema'
 
 export const domains: Domain[] = [
   {

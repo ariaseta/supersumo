@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Switch } from '@/components/ui/switch'
 import { DataTableColumnHeader } from '@/components/data-table'
-import { Database } from '../data/schema'
+import { type Database } from '../data/schema'
 
 export const databaseColumns: ColumnDef<Database>[] = [
   {
@@ -47,21 +47,25 @@ export const databaseColumns: ColumnDef<Database>[] = [
       tdClassName: 'ps-4',
     },
     cell: ({ row }) => {
-      const navigate = useNavigate()
-      const name = row.getValue('name') as string
-      return (
-        <button
-          onClick={() =>
-            navigate({
-              to: '/database/$databaseId',
-              params: { databaseId: row.original.id },
-            })
-          }
-          className='truncate text-left font-medium hover:underline'
-        >
-          {name}
-        </button>
-      )
+      const NameCell = () => {
+        const navigate = useNavigate()
+        const name = row.getValue('name') as string
+        return (
+          <button
+            onClick={() =>
+              navigate({
+                to: '/database/$databaseId',
+                params: { databaseId: row.original.id },
+              })
+            }
+            className='truncate text-left font-medium hover:underline'
+          >
+            {name}
+          </button>
+        )
+      }
+
+      return <NameCell />
     },
   },
   {
@@ -143,21 +147,25 @@ export const databaseColumns: ColumnDef<Database>[] = [
     id: 'actions',
     enableSorting: false,
     cell: ({ row }) => {
-      const navigate = useNavigate()
-      return (
-        <Button
-          variant='secondary'
-          size='sm'
-          onClick={() =>
-            navigate({
-              to: '/database/$databaseId',
-              params: { databaseId: row.original.id },
-            })
-          }
-        >
-          Manage
-        </Button>
-      )
+      const ActionsCell = () => {
+        const navigate = useNavigate()
+        return (
+          <Button
+            variant='secondary'
+            size='sm'
+            onClick={() =>
+              navigate({
+                to: '/database/$databaseId',
+                params: { databaseId: row.original.id },
+              })
+            }
+          >
+            Manage
+          </Button>
+        )
+      }
+
+      return <ActionsCell />
     },
   },
 ]

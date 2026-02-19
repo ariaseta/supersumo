@@ -24,7 +24,7 @@ import {
 } from '@/components/ui/table'
 import { DataTablePagination, DataTableToolbar } from '@/components/data-table'
 import { statuses, plans } from '../data/data'
-import { Container } from '../data/schema'
+import { type Container } from '../data/schema'
 import { containersColumns as columns } from './containers-columns'
 import { DataTableBulkActions } from './data-table-bulk-actions'
 
