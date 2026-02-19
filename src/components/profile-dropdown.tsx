@@ -1,5 +1,5 @@
-import useDialogState from '@/hooks/use-dialog-state'
 import { useSupabase } from '@/context/supabase-provider'
+import useDialogState from '@/hooks/use-dialog-state'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
@@ -21,11 +21,15 @@ export function ProfileDropdown() {
   const getAvatarFallback = (email: string | undefined) => {
     if (!email) return 'U'
     const parts = email.split('@')[0].split(/[._-]/)
-    return parts.slice(0, 2).map((p) => p[0]?.toUpperCase()).join('')
+    return parts
+      .slice(0, 2)
+      .map((p) => p[0]?.toUpperCase())
+      .join('')
   }
 
   const displayEmail = user?.email || 'No email'
-  const displayName = user?.user_metadata?.name || user?.email?.split('@')[0] || 'User'
+  const displayName =
+    user?.user_metadata?.name || user?.email?.split('@')[0] || 'User'
   const avatarFallback = getAvatarFallback(user?.email)
 
   return (
@@ -34,7 +38,10 @@ export function ProfileDropdown() {
         <DropdownMenuTrigger asChild>
           <Button variant='ghost' className='relative h-8 w-8 rounded-full'>
             <Avatar className='h-8 w-8'>
-              <AvatarImage src={user?.user_metadata?.avatar_url} alt={displayName} />
+              <AvatarImage
+                src={user?.user_metadata?.avatar_url}
+                alt={displayName}
+              />
               <AvatarFallback>{avatarFallback}</AvatarFallback>
             </Avatar>
           </Button>

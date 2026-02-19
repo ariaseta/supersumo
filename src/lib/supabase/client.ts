@@ -9,7 +9,9 @@ console.error({
   hasUrl: !!supabaseUrl,
   hasAnonKey: !!supabaseAnonKey,
   supabaseUrl: supabaseUrl ? `${supabaseUrl.substring(0, 20)}...` : 'MISSING',
-  supabaseAnonKey: supabaseAnonKey ? `${supabaseAnonKey.substring(0, 10)}...` : 'MISSING',
+  supabaseAnonKey: supabaseAnonKey
+    ? `${supabaseAnonKey.substring(0, 10)}...`
+    : 'MISSING',
 })
 
 if (!supabaseUrl) {
